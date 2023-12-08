@@ -4,7 +4,8 @@ export default function AboutUs(){
 
 return(
     <div style={{'text-align':'center'}}>
-    This is About Us Page.
+        <h2> About Us:</h2>
+     <img src="/image/about-us.jpg"></img>
     </div>
 );
 }

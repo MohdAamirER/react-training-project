@@ -13,18 +13,20 @@ import DeptDetails from './spa_component/DeptDetails';
 import PageNotFound from './spa_component/PageNotFound';
 import ProtectedRouting from './spa_component/ProtectedRouting';
 import Login from './spa_component/Login';
+import Logout from './spa_component/Logout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = (
   <Router>
- <Link to="/">Home</Link> | 
+ <Link to='/'>Home</Link> | 
  <Link to="/aboutUs">About Us</Link> | 
  <Link to="/contact">Contact Us</Link> |
  <Link to="/emp">Employees</Link> |
  <Link to="/deptList">Departments</Link> |
  <Link to="/Login"></Link> 
- <Link to="/invalid">Invalid</Link>
+ <Link to="/invalid">Invalid</Link> | 
+ <Link to="/logout">Logout</Link>
  
  <Routes>
    <Route path='/' element={<App/>}></Route>
@@ -40,6 +42,7 @@ const router = (
    <Route path="/deptDetails/:deptId" element={<DeptDetails/>}></Route> 
    <Route path="/Login" element={<Login/>}></Route>
    <Route path="*" element={<PageNotFound/>}></Route>
+   <Route path="/logout" element={<Logout></Logout>}></Route>
  </Routes>
 
   </Router>

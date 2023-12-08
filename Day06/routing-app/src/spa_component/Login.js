@@ -15,17 +15,16 @@ export default function Login(props){
         const queryParam = location.search
             console.log("query param :"+queryParam);
             // this will give /returnUrl=/emp
-            const url = new URLSearchParams(queryParam).get("returnUrl");
+            let url = new URLSearchParams(queryParam).get("returnUrl");
             console.log("url :::"+url);
-            if(url=='/' || url=='undefined'){
-                nagivation("/");
+            if(url=='/' || url=='undefined' || url==null){
+               url='/';
             } 
         if(uid=='admin' && password=='aamir@123'){
             // if credential are valid.
             const accessToken = generateAccessToken();
             //put accessToken in session 
             sessionStorage.setItem('access-token',accessToken);
-            
             nagivation(url);
         }else{
             setResult("Invalid Credential Please try again......")

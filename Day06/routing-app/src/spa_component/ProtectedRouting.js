@@ -8,15 +8,16 @@ export default function ProtectedRouting(props){
     const [isLoggedIn,setIsLoggedIn] = useState(false);
 
     function checkAccessToken(){
+        const returnUrl= props.returnUrl;
         //get the access token from session storage.
         const accessToken = sessionStorage.getItem('access-token');
-        if(accessToken==null || accessToken=='undefined'){
+        if(accessToken==null || accessToken=='undefined' || accessToken==''){
             //user is not logged in.
             setIsLoggedIn(false);
             //render user to login page.
-            return navigating('/Login?returnUrl='+props.returnUrl);
-
+            return navigating('/Login?returnUrl='+returnUrl);
         }
+        
         setIsLoggedIn(true);
     }
 
